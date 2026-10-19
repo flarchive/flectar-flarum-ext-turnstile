@@ -1,0 +1,95 @@
+{
+    "name": "flectar/flarum-turnstile",
+    "description": "Adds Cloudflare Turnstile CAPTCHA protection to your Flarum forum.",
+    "keywords": [
+        "flarum",
+        "captcha",
+        "cloudflare",
+        "turnstile"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/flectar/flarum-ext-turnstile/issues/",
+        "source": "https://github.com/flectar/flarum-ext-turnstile/",
+        "forum": "https://discuss.flarum.org/"
+    },
+    "homepage": "https://flectar.com/",
+    "require": {
+        "flarum/core": "^2.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "php": "^8.3"
+    },
+    "authors": [
+        {
+            "name": "Flectar",
+            "email": "tomas@flectar.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Flectar\\Turnstile\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Flectar\\Turnstile\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "flarum/phpstan": "^2.0",
+        "flarum/testing": "^2.0"
+    },
+    "scripts": {
+        "test": [
+            "@test:unit",
+            "@test:integration"
+        ],
+        "test:unit": "phpunit -c tests/phpunit.unit.xml",
+        "test:integration": "phpunit -c tests/phpunit.integration.xml",
+        "test:setup": "@php tests/integration/setup.php",
+        "analyse:phpstan": "phpstan analyse",
+        "clear-cache:phpstan": "phpstan clear-result-cache"
+    },
+    "scripts-descriptions": {
+        "test": "Runs all tests.",
+        "test:unit": "Runs the unit test suite.",
+        "test:integration": "Runs the integration test suite.",
+        "test:setup": "Sets up the integration test database and files.",
+        "analyse:phpstan": "Runs PHP static analysis."
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Cloudflare Turnstile",
+            "category": "feature",
+            "icon": {
+                "image": "resources/assets/Cloudflare_Turnstile_logo.svg",
+                "backgroundColor": "#ffffff",
+                "backgroundSize": "80%",
+                "backgroundRepeat": "no-repeat",
+                "backgroundPosition": "center"
+            }
+        },
+        "flarum-cli": {
+            "modules": {
+                "admin": true,
+                "forum": true,
+                "js": true,
+                "jsCommon": true,
+                "css": true,
+                "locale": true,
+                "gitConf": true,
+                "githubActions": true,
+                "prettier": true,
+                "typescript": true,
+                "bundlewatch": false,
+                "backendTesting": true,
+                "editorConfig": true,
+                "styleci": true
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

@@ -1,0 +1,28 @@
+<?php
+
+/*
+ * This file is part of flectar/turnstile.
+ *
+ * Copyright (c) 2026 Flectar.
+ * Copyright (c) 2022 Blomstra Ltd.
+ *
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
+namespace Flectar\Turnstile\Validator;
+
+use Flarum\Foundation\AbstractValidator;
+
+class TurnstileValidator extends AbstractValidator
+{
+    /**
+     * {@inheritdoc}
+     */
+    protected function getRules(): array
+    {
+        return [
+            'turnstileToken' => ['required', 'turnstile'],
+        ];
+    }
+}
